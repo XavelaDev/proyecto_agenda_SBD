@@ -1,0 +1,37 @@
+CREATE DATABASE agenda;
+
+USE agenda;
+
+CREATE TABLE usuario(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE contacto(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    UNIQUE(id),
+    nombre VARCHAR(50) NOT NULL,
+    avatar VARCHAR(1000),
+    correo VARCHAR(50),
+    telefono VARCHAR(50),
+    facebook VARCHAR(50),
+    twitter VARCHAR(50),
+    instagram VARCHAR(50),
+    id_usuario INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+);
+
+INSERT INTO usuario(nombre) 
+VALUES('isabel');
+
+INSERT INTO contacto(nombre, avatar, correo, telefono, facebook, twitter, instagram,id_usuario) 
+VALUES('Ofelia Flores', 'https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg', 'ofe@mail.com', '(33) 44 55 66 77', 'ofe_face', '@ofe.twit', 'ofe.insta', 1);
+
+INSERT INTO contacto(nombre, avatar, correo, telefono, facebook, twitter, instagram,id_usuario) 
+VALUES('Juan Medina', 'https://image.freepik.com/vector-gratis/perfil-avatar-hombre-icono-redondo_24640-14044.jpg', 'juan@mail.com', '(33) 12 34 56 78', 'juan_face', '@juan.twit', 'juan.insta', 1);
+
+INSERT INTO contacto(nombre, avatar, correo, telefono, facebook, twitter, instagram,id_usuario) 
+VALUES('Vanesa Perez', 'https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14048.jpg', 'vane@mail.com', '(33) 09 87 65 43', 'vane_face', '@vane.twit', 'vane.insta', 1);
+
+SELECT * FROM usuario;
+SELECT * FROM contacto;
